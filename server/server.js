@@ -4,13 +4,13 @@ const path = require('path');
 const cors = require('cors');
 const connectDB = require('./config/db');
 
-// Load env vars
+// Load environment variables
 dotenv.config();
 
-// Connect to database
+// Connect MongoDB
 connectDB();
 
-// Route files
+// Import routes
 const tourRoutes = require('./routes/tourRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -18,7 +18,7 @@ const carBookingRoutes = require('./routes/carBookingRoutes');
 
 const app = express();
 
-// Body parser middleware
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -32,7 +32,30 @@ app.use('/api/bookings', bookingRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/car-bookings', carBookingRoutes);
 
-// Serve HTML pages
+// WhatsApp redirect endpoint
+app.post('/api/whatsapp-notify', (req, res) => {
+  const { name, phone, bookingType, details } = req.body;
+
+  const message = `
+New Booking Request!
+
+Name: ${name}
+Phone: ${phone}
+Type: ${bookingType}
+Details: ${details}
+`;
+
+  const whatsappUrl = `https://wa.me/${
+    process.env.WHATSAPP_NUMBER
+  }?text=${encodeURIComponent(message)}`;
+
+  res.json({
+    success: true,
+    whatsappUrl
+  });
+});
+
+// Frontend Routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -53,7 +76,7 @@ app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-// SEO Routes
+// SEO Files
 app.get('/sitemap.xml', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'sitemap.xml'));
 });
@@ -62,15 +85,14 @@ app.get('/robots.txt', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'robots.txt'));
 });
 
-// WhatsApp redirect endpoint
-app.post('/api/whatsapp-notify', (req, res) => {
-  const { name, phone, bookingType, details } = req.body;
-  const message = `New Booking Request!\n\nName: ${name}\nPhone: ${phone}\nType: ${bookingType}\nDetails: ${details}`;
-  const whatsappUrl = `https://wa.me/${process.env.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  res.json({ success: true, whatsappUrl });
+// Fallback Route for Vercel
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Local server run
 const PORT = process.env.PORT || 5000;
+
 
 // Export app for Vercel
 module.exports = app;
