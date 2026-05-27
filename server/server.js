@@ -72,8 +72,12 @@ app.post('/api/whatsapp-notify', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📱 Visit: http://localhost:${PORT}`);
-  console.log(`📞 WhatsApp Number: ${process.env.WHATSAPP_NUMBER}`);
-});
+// Run locally only
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+}
+
+// Export app for Vercel
+module.exports = app;
