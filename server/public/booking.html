@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Tour - Dhwani Tour Travels</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+
+        body{
+            margin:0;
+            padding:0;
+            font-family:'Poppins',sans-serif;
+            background:#f5f5f5;
+        }
+
+        .page-header{
+            background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop');
+            background-size:cover;
+            background-position:center;
+            padding:100px 20px;
+            text-align:center;
+            color:#fff;
+        }
+
+        .page-header h1{
+            font-size:50px;
+            margin-bottom:10px;
+        }
+
+        .booking-section{
+            padding:60px 20px;
+        }
+
+        .booking-container{
+            max-width:1100px;
+            margin:auto;
+            display:grid;
+            grid-template-columns:1fr 350px;
+            gap:30px;
+        }
+
+        .booking-form-container,
+        .booking-info{
+            background:#fff;
+            padding:30px;
+            border-radius:20px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-row{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select{
+            width:100%;
+            padding:15px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            font-size:16px;
+            box-sizing:border-box;
+        }
+
+        .btn{
+            padding:15px 25px;
+            border:none;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:16px;
+            font-weight:600;
+        }
+
+        .btn-primary{
+            background:#ff6600;
+            color:#fff;
+            width:100%;
+        }
+
+        .btn-whatsapp{
+            background:#25D366;
+            color:#fff;
+        }
+
+        .price-breakdown{
+            background:#f9f9f9;
+            padding:20px;
+            border-radius:10px;
+            margin-bottom:20px;
+        }
+
+        .price-breakdown h3{
+            margin-top:0;
+        }
+
+        .total-price{
+            color:#ff6600;
+            font-weight:bold;
+            font-size:20px;
+        }
+
+        .booking-info ul{
+            list-style:none;
+            padding:0;
+        }
+
+        .booking-info ul li{
+            margin-bottom:15px;
+        }
+
+        .booking-info i{
+            color:#25D366;
+            margin-right:10px;
+        }
+
+        .payment-info{
+            margin-top:30px;
+            padding:20px;
+            background:#f9f9f9;
+            border-radius:10px;
+        }
+
+        .whatsapp-booking-option{
+            margin-top:20px;
+            padding:20px;
+            background:#f0fdf4;
+            border-radius:10px;
+            border-left:5px solid #25D366;
+        }
+
+        .footer{
+            background:#111;
+            color:#fff;
+            padding:50px 20px;
+        }
+
+        .footer-content{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .footer-section ul{
+            list-style:none;
+            padding:0;
+        }
+
+        .footer-section ul li{
+            margin-bottom:10px;
+        }
+
+        .footer-section ul li a{
+            color:#fff;
+            text-decoration:none;
+        }
+
+        .footer-bottom{
+            text-align:center;
+            margin-top:30px;
+            border-top:1px solid #333;
+            padding-top:20px;
+        }
+
+        @media(max-width:768px){
+
+            .booking-container{
+                grid-template-columns:1fr;
+            }
+
+            .form-row{
+                grid-template-columns:1fr;
+            }
+
+            .page-header h1{
+                font-size:35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <section class="page-header">
+
+        <h1>Book Your Tour</h1>
+
+        <p>
+            Fill in the details to secure your amazing journey with us
+        </p>
+
+    </section>
+
+    <!-- BOOKING SECTION -->
+
+    <section class="booking-section">
+
+        <div class="booking-container">
+
+            <!-- BOOKING FORM -->
+
+            <div class="booking-form-container">
+
+                <form id="bookingForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label>Your Name *</label>
+
+                            <input 
+                                type="text"
+                                id="customerName"
+                                placeholder="Enter Your Name"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mobile Number *</label>
+
+                            <input 
+                                type="tel"
+                                id="contactPhone"
+                                placeholder="Your Mobile Number"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label>From *</label>
+
+                            <input 
+                                type="text"
+                                id="fromLocation"
+                                placeholder="From Location"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Destination *</label>
+
+                            <input 
+                                type="text"
+                                id="destinationLocation"
+                                placeholder="Destination"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label>Travel Date *</label>
+
+                            <input 
+                                type="date"
+                                id="travelDate"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Number of People *</label>
+
+                            <input 
+                                type="number"
+                                id="numberOfPeople"
+                                min="1"
+                                value="1"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Car Type</label>
+
+                        <select id="carType">
+
+                            <option value="SUV">SUV</option>
+
+                            <option value="SEDAN">SEDAN</option>
+
+                            <option value="INNOVA">INNOVA</option>
+
+                            <option value="TEMPO TRAVELLER">
+                                TEMPO TRAVELLER
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Special Requests</label>
+
+                        <textarea 
+                            id="specialRequests"
+                            rows="5"
+                            placeholder="Any special requests?"
+                        ></textarea>
+
+                    </div>
+
+                    <!-- BOOKING DETAILS -->
+
+                    <div class="price-breakdown">
+
+                        <h3>Booking Details</h3>
+
+                        <p>
+                            Car Type:
+                            <span id="selectedCarType">
+                                SUV
+                            </span>
+                        </p>
+
+                        <p>
+                            Number of People:
+                            <span id="peopleCount">
+                                1
+                            </span>
+                        </p>
+
+                        <p class="total-price">
+                            Rajasthan Tour & Travels Booking
+                        </p>
+
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+
+                    <button 
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Confirm Booking
+                    </button>
+
+                </form>
+
+                <!-- WHATSAPP BOOKING -->
+
+                <div class="whatsapp-booking-option">
+
+                    <p style="
+                        display:flex;
+                        align-items:center;
+                        gap:10px;
+                        flex-wrap:wrap;
+                    ">
+
+                        <i class="fab fa-whatsapp"
+                        style="
+                            color:#25D366;
+                            font-size:24px;
+                        "></i>
+
+                        <span>
+                            Prefer to book via WhatsApp?
+                        </span>
+
+                        <button 
+                            type="button"
+                            onclick="quickInquiryFromBooking()"
+                            class="btn btn-whatsapp"
+                        >
+                            Book on WhatsApp
+                        </button>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE INFO -->
+
+            <div class="booking-info">
+
+                <h3>Why Book With Us?</h3>
+
+                <ul>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Best price guarantee
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Free cancellation up to 24 hours
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Professional drivers and guides
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        24/7 customer support
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Instant booking confirmation
+                    </li>
+
+                </ul>
+
+                <div class="payment-info">
+
+                    <h4>Payment Information</h4>
+
+                    <p>
+                        Pay at the time of travel or book with minimal 
+                        advance payment. Our team will contact you 
+                        after booking confirmation.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-section">
+
+                <h3>Dhwani Tour Travels</h3>
+
+                <p>
+                    Reliable tour operator and car rental service 
+                    in Rajasthan.
+                </p>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="tours.html">Tours</a></li>
+
+                    <li><a href="about.html">About</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-section">
+
+                <h3>Contact Info</h3>
+
+                <p>
+                    <i class="fas fa-phone"></i>
+                    +91 9876543210
+                </p>
+
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    info@dhwanitourtravels.com
+                </p>
+
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Udaipur, Rajasthan
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Dhwani Tour Travels. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        // PEOPLE COUNT
+
+        document
+        .getElementById('numberOfPeople')
+        .addEventListener('input', function(){
+
+            document.getElementById('peopleCount').innerText = this.value;
+
+        });
+
+        // CAR TYPE
+
+        document
+        .getElementById('carType')
+        .addEventListener('change', function(){
+
+            document.getElementById('selectedCarType').innerText = this.value;
+
+        });
+
+        // FORM SUBMIT
+
+        document
+        .getElementById('bookingForm')
+        .addEventListener('submit', async function(e){
+
+            e.preventDefault();
+
+            const bookingData = {
+
+                name: document.getElementById('customerName').value,
+
+                mobile: document.getElementById('contactPhone').value,
+
+                from: document.getElementById('fromLocation').value,
+
+                destination: document.getElementById('destinationLocation').value,
+
+                travelDate: document.getElementById('travelDate').value,
+
+                people: document.getElementById('numberOfPeople').value,
+
+                carType: document.getElementById('carType').value,
+
+                specialRequests: document.getElementById('specialRequests').value
+
+            };
+
+            try {
+
+                const response = await fetch('/api/bookings', {
+
+                    method:'POST',
+
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+
+                    body:JSON.stringify(bookingData)
+
+                });
+
+                const data = await response.json();
+
+                alert(data.message || 'Booking Submitted');
+
+                document.getElementById('bookingForm').reset();
+
+            } catch(error){
+
+                alert('Booking Failed');
+
+            }
+
+        });
+
+        // WHATSAPP BOOKING
+
+        function quickInquiryFromBooking(){
+
+            const name = document.getElementById('customerName').value;
+
+            const mobile = document.getElementById('contactPhone').value;
+
+            const from = document.getElementById('fromLocation').value;
+
+            const destination = document.getElementById('destinationLocation').value;
+
+            const travelDate = document.getElementById('travelDate').value;
+
+            const peopleCount = document.getElementById('numberOfPeople').value;
+
+            const carType = document.getElementById('carType').value;
+
+            const message =
+`*New Booking Request*
+
+Name: ${name}
+
+Mobile: ${mobile}
+
+From: ${from}
+
+Destination: ${destination}
+
+Travel Date: ${travelDate}
+
+People: ${peopleCount}
+
+Car Type: ${carType}
+
+Please share booking details.`;
+
+            const encodedMessage = encodeURIComponent(message);
+
+            window.open(
+                `https://wa.me/919876543210?text=${encodedMessage}`,
+                '_blank'
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>

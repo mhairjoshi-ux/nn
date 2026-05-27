@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Dhwani Tour Travels</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .contact-section {
+            padding: 120px 0 60px;
+        }
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .contact-info {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        .contact-details {
+            margin: 2rem 0;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .contact-item i {
+            width: 40px;
+            color: #e67e22;
+            font-size: 1.2rem;
+        }
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Dhwani Tour Travels</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tours.html">Tours</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" id="authLink">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section">
+        <div class="container">
+            <h1 style="text-align: center; margin-bottom: 2rem;">Get In Touch</h1>
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ahmedabad, Gujarat, India</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91-9274713544</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91-8200179225</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>dhwanitourist@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Customer Support</span>
+                        </div>
+                    </div>
+                    <div class="map-container">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117490.01376064477!2d72.48693495!3d23.0204978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f7c1fb527f%3A0x63e4e0d6b0f7c4c8!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+        width="100%" 
+        height="250" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+    </iframe>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dhwani Tour Travels</h3>
+                    <p>Established in 2022, reliable tour operator and car rental service in India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tours.html">Tours</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91-9274713544</p>
+                    <p><i class="fas fa-phone"></i> +91-8200179225</p>
+                    <p><i class="fas fa-envelope"></i> dhwanitourist@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dhwani Tour Travels. All rights reserved.</p>
+            </div>
+        </div>
+        <!-- WhatsApp Contact Section -->
+<div class="whatsapp-contact" style="margin-top: 3rem;">
+    <i class="fab fa-whatsapp" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+    <h3>Quick Response on WhatsApp</h3>
+    <p>Get instant replies to your queries. Click below to chat with us on WhatsApp!</p>
+    <button onclick="sendWhatsAppInquiry()" class="btn btn-whatsapp-large">
+        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    </button>
+    <p style="margin-top: 1rem; font-size: 0.9rem;">Response time: Usually within 5-10 minutes</p>
+</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

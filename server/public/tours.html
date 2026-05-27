@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Tours - Dhwani Tour Travels</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tours.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Dhwani Tour Travels</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tours.html">Tours</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" id="authLink">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Tours & Packages</h1>
+            <p>Discover the beauty of Udaipur and Rajasthan with our carefully crafted tours</p>
+        </div>
+    </section>
+
+    <section class="tours-section">
+        <div class="container">
+            <!-- Car Section -->
+            <div class="car-rental-section">
+                <div class="car-image">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" alt="Premium Car Rental">
+                </div>
+                <div class="car-details">
+                    <h2>Premium Car Rental</h2>
+                    <div class="car-price">SUV / SEDAN / LUXURY</div>
+                    <p>All Premium Cars Available for Rajasthan Tours, Airport Transfer, Local Sightseeing and Outstation Trips. Professional drivers with well-maintained vehicles.</p>
+                    <div class="car-features">
+                        <span><i class="fas fa-wifi"></i> WiFi</span>
+                        <span><i class="fas fa-snowflake"></i> AC</span>
+                        <span><i class="fas fa-gas-pump"></i> Fuel Included</span>
+                        <span><i class="fas fa-user-tie"></i> Professional Driver</span>
+                    </div>
+                    <button onclick="showBookingForm()" class="btn-book">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div id="bookingFormModal" class="booking-modal" style="display:none;">
+                <div class="booking-modal-content">
+                    <span class="close-modal" onclick="closeBookingForm()">&times;</span>
+                    <h2>Book Your Car</h2>
+                    <form id="carBookingForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="fromLocation" placeholder="Pickup Location (From)" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="toLocation" placeholder="Destination" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="travelDate" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="carType">
+                                <option value="SEDAN">Sedan (4 Seater)</option>
+                                <option value="SUV">SUV (6-7 Seater)</option>
+                                <option value="LUXURY">Luxury Car</option>
+                                <option value="HATCHBACK">Hatchback (4 Seater)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Additional Requirements (Optional)" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit Booking</button>
+                    </form>
+                    <div id="bookingMessage" class="booking-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dhwani Tour Travels</h3>
+                    <p>Established in 2022, reliable tour operator and car rental service in India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tours.html">Tours</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +91-9274713544</p>
+                    <p><i class="fas fa-phone"></i> +91-8200179225</p>
+                    <p><i class="fas fa-envelope"></i> dhwanitourist@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ahmedabad, Gujarat, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dhwani Tour Travels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/919274713544" target="_blank" class="whatsapp-link">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-text">Chat with us</span>
+        </a>
+    </div>
+
+    <style>
+        .car-rental-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .car-image img {
+            width: 420px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .car-details {
+            max-width: 500px;
+            text-align: left;
+        }
+        .car-details h2 {
+            font-size: 35px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        .car-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ff6600;
+        }
+        .car-features {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .car-features span {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .btn-book {
+            background: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-book:hover {
+            background: #e65500;
+            transform: scale(1.05);
+        }
+        .booking-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .booking-modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+        }
+        .close-modal:hover {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        .btn-submit {
+            background: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .btn-submit:hover {
+            background: #e65500;
+        }
+        .booking-message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .whatsapp-link i {
+            font-size: 28px;
+        }
+        @media (max-width: 768px) {
+            .car-image img {
+                width: 100%;
+                height: auto;
+            }
+            .whatsapp-text {
+                display: none;
+            }
+        }
+        .tour-packages-section {
+            margin-top: 50px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .tour-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .tour-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .tour-info {
+            padding: 1.5rem;
+        }
+        .tour-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        .tour-price {
+            color: #ff6600;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+        }
+    </style>
+
+    <script>
+        const API_URL = '/api';
+        
+        // Show booking form
+        function showBookingForm() {
+            document.getElementById('bookingFormModal').style.display = 'flex';
+        }
+        
+        function closeBookingForm() {
+            document.getElementById('bookingFormModal').style.display = 'none';
+            document.getElementById('carBookingForm').reset();
+            document.getElementById('bookingMessage').innerHTML = '';
+        }
+        
+        // Handle car booking form submission
+        document.getElementById('carBookingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const bookingData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                fromLocation: document.getElementById('fromLocation').value,
+                toLocation: document.getElementById('toLocation').value,
+                travelDate: document.getElementById('travelDate').value,
+                carType: document.getElementById('carType').value,
+                message: document.getElementById('message').value
+            };
+            
+            try {
+                const response = await fetch(`${API_URL}/car-bookings`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bookingData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('bookingMessage').innerHTML = '<div class="success">✓ Booking submitted successfully! We will contact you shortly on WhatsApp.</div>';
+                    
+                    // Send WhatsApp notification
+                    const whatsappMsg = `New Car Booking!\n\nName: ${bookingData.name}\nPhone: ${bookingData.phone}\nFrom: ${bookingData.fromLocation}\nTo: ${bookingData.toLocation}\nDate: ${bookingData.travelDate}\nCar: ${bookingData.carType}`;
+                    window.open(`https://wa.me/919274713544?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+                    
+                    setTimeout(() => {
+                        closeBookingForm();
+                    }, 3000);
+                } else {
+                    document.getElementById('bookingMessage').innerHTML = `<div class="error">✗ ${data.error}</div>`;
+                }
+            } catch (error) {
+                document.getElementById('bookingMessage').innerHTML = '<div class="error">✗ Something went wrong. Please try again.</div>';
+            }
+        });
+        
+        // Load tours
+        async function loadTours() {
+            const toursGrid = document.getElementById('toursGrid');
+            if (!toursGrid) return;
+            
+            try {
+                const response = await fetch(`${API_URL}/tours`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    displayTours(data.data, toursGrid);
+                } else {
+                    toursGrid.innerHTML = '<div class="loading">No tours available at the moment.</div>';
+                }
+            } catch (error) {
+                console.error('Error loading tours:', error);
+                toursGrid.innerHTML = '<div class="loading">Failed to load tours. Please refresh.</div>';
+            }
+        }
+        
+        function displayTours(tours, container) {
+            container.innerHTML = '';
+            tours.forEach(tour => {
+                const tourCard = document.createElement('div');
+                tourCard.className = 'tour-card';
+                tourCard.innerHTML = `
+                    <img src="${tour.image || 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400'}" alt="${tour.name}">
+                    <div class="tour-info">
+                        <h3>${tour.name}</h3>
+                        <p>${tour.description.substring(0, 100)}...</p>
+                        <div class="tour-price">₹${tour.price.toLocaleString()} per person</div>
+                        <div class="tour-duration"><i class="far fa-clock"></i> ${tour.duration}</div>
+                        <button onclick="sendTourInquiry('${tour.name}', ${tour.price})" class="btn-book" style="margin-top: 10px; width: 100%;">Inquire on WhatsApp</button>
+                    </div>
+                `;
+                container.appendChild(tourCard);
+            });
+        }
+        
+        function sendTourInquiry(tourName, tourPrice) {
+            const message = `Hello! I'm interested in "${tourName}" tour (₹${tourPrice}). Please share details about availability.`;
+            window.open(`https://wa.me/919274713544?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        // Check authentication
+        let currentUser = null;
+        const token = localStorage.getItem('token');
+        
+        if (token) {
+            fetch(`${API_URL}/users/me`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    currentUser = data.data;
+                    const authLink = document.getElementById('authLink');
+                    if (authLink) {
+                        authLink.textContent = `Welcome, ${currentUser.name}`;
+                        authLink.href = '#';
+                        authLink.onclick = (e) => {
+                            e.preventDefault();
+                            localStorage.removeItem('token');
+                            window.location.href = 'index.html';
+                        };
+                    }
+                }
+            });
+        }
+        
+        // Load tours on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTours();
+            
+            // Close modal on outside click
+            window.onclick = (event) => {
+                const modal = document.getElementById('bookingFormModal');
+                if (event.target === modal) {
+                    closeBookingForm();
+                }
+            };
+        });
+    </script>
+</body>
+</html>
